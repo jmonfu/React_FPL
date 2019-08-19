@@ -6,9 +6,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="nav-wrapper grey darken-3">
-        <a href="#" className="brand-logo">
-          FPL Application
-        </a>
+        <Link to='/' className="brand-logo">FPL Application</Link>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <SignedInLinks />
         </ul>

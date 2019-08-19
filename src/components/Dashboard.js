@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { Component } from "react";
+import TeamList from "./Teams/TeamList";
 
-const Dashboard = () => {
+class Dashboard extends Component {
+  render() {
     return (
-        <div>Dashboard</div>
-    )
+      <div className="row">
+        <TeamList />
+      </div>
+    );
+  }
 }
 
-export default Dashboard
+export default Dashboard;
