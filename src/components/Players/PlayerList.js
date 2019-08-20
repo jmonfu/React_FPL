@@ -5,6 +5,8 @@ class PlayerList extends Component {
   constructor(props) {
     super(props);
 
+    this.teamId = this.props.match.params.id;
+
     this.players = [
       {
         id: 1,
@@ -53,6 +55,14 @@ class PlayerList extends Component {
         playerName: "Harry",
         playerSurname: "Kane",
         teamId: 5
+      },
+      {
+        id: 7,
+        playerFace:
+          "http://soccersurgery.net/wp-content/uploads/2016/06/arsenal-logo-128x128.jpg",
+        playerName: "Anthony",
+        playerSurname: "Martial",
+        teamId: 1
       }
     ];
   }
@@ -61,9 +71,11 @@ class PlayerList extends Component {
     return (
       <div className="row">
         {this.players &&
-          this.players.map(player => {
+          this.players
+          .filter(player => player.teamId == this.teamId)
+          .map(player => {
             return (
-              <div className="col s3 offset-s1" key={player.id}>
+              <div className="col s4" key={player.id}>
               <span className="flow-text">
                 <PlayerSummary player={player} />
               </span>

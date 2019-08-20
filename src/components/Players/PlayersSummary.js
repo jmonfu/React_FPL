@@ -1,18 +1,22 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const PlayerSummary = ({ player }) => {
   return (
-    <div className="card card-sticky z-depth-0">
-      <div className="card-image">
-        <img src={player.playerFace} width="100px" height="100px" />
-      </div>
-      <div className="card-content">  
-          <span className="card-title grey-text text-darken-4">
-          <Link to={'/playerDetails/' + player.id} key={player.id}>
-          {player.playerName} {player.playerSurname}
-        </Link>
-        </span>
+    <div className="col s12 m8 offset-m2 l6 offset-l3">
+      <div className="card-panel grey lighten-5 z-depth-2">
+        <div className="row valign-wrapper">
+          <div className="col s3">
+            <img src={player.playerFace} alt="" class="circle responsive-img" />
+          </div>
+          <div className="col s9">
+            <span class="link-title-text">
+              <Link to={"/playerDetails/" + player.id} key={player.id}>
+                {player.playerName} {player.playerSurname}
+              </Link>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );

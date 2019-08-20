@@ -51,7 +51,7 @@ class TeamList extends Component {
         {this.teams &&
           this.teams.map(team => {
             return (
-              <div className="col s3 offset-s1" key={team.id}>
+              <div className="col s4" key={team.id}>
               <span className="flow-text">
                 <TeamSummary team={team} />
               </span>

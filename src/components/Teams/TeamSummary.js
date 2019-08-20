@@ -4,18 +4,22 @@ import TeamDetails from './TeamDetails';
 
 const TeamSummary = ({ team }) => {
   return (
-    <div className="card card-sticky z-depth-0">
-      <div className="card-image">
-        <img src={team.badge} width="100px" height="100px" />
-      </div>
-      <div className="card-content">  
-          <span className="card-title grey-text text-darken-4">
-          <Link to={'/teamDetails/' + team.id} key={team.id}>
-          {team.teamName}
-        </Link>
-        </span>
+    <div className="col s12 m8 offset-m2 l6 offset-l3">
+    <div className="card-panel grey lighten-5 z-depth-2">
+      <div className="row valign-wrapper">
+        <div className="col s3">
+          <img src={team.badge} alt="" class="circle responsive-img" />
+        </div>
+        <div className="col s9">
+          <span className="link-title-text">
+            <Link to={"/teamDetails/" + team.id} key={team.id}>
+              {team.teamName}
+            </Link>
+          </span>
+        </div>
       </div>
     </div>
-  );
+    </div>
+      );
 };
 export default TeamSummary;
