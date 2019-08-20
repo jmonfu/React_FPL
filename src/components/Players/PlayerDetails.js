@@ -14,17 +14,32 @@ class PlayerDetails extends Component {
         playerDOB: "15/03/1993",
         playerPosition: "Midfielder",
         playerNationalFlag:
-          "http://soccersurgery.net/wp-content/uploads/2016/06/arsenal-logo-128x128.jpg",
+          "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/114/flag-for-france_1f1eb-1f1f7.png",
         playerNationality: "France",
         previousClubs: [
           {
-            teamId: 100
+            years: "2011-2012",
+            teamId: 1,
+            teamName: "Manchester United",
+            teamBadge: "",
+            apps: "3",
+            goals: "0"
           },
           {
-            teamId: 101
+            years: "2012-2016",
+            teamId: 100,
+            teamName: "Juventus",
+            teamBadge: "",
+            apps: "124",
+            goals: "28"
           },
           {
-            teamId: 102
+            years: "2016-",
+            teamId: 1,
+            teamName: "Manchester United",
+            teamBadge: "",
+            apps: "94",
+            goals: "24"
           }
         ],
         teamId: 1
@@ -34,54 +49,71 @@ class PlayerDetails extends Component {
 
   render() {
     return (
-      <div class="row">
-        {this.player &&
-          this.player.map(player => {
-            return (
-              <div className="col s12 m8 offset-m2 l6 offset-l3">
-              <div className="card-panel grey lighten-5 z-depth-2">
-                <div className="row valign-wrapper">
-                  <div className="col s3">
-                    <img
-                      src={player.playerFace}
-                      alt=""
-                      class="circle responsive-img"
-                    />
+      <div className="container">
+        <div class="row">
+          {this.player &&
+            this.player.map(player => {
+              return (
+                <div className="row center">
+                  <div class="col s12 m4 l2">
+                    <p>
+                      <img
+                        src={player.playerFace}
+                        alt=""
+                        class="circle responsive-img"
+                      />
+                    </p>
                   </div>
-                  <div className="col s9">
-                    <span class="link-title-text">
-                      {player.playerName} {player.playerSurname}
-                    </span>
+                  <div class="col s12 m4 l8">
+                    <h5 class="center">
+                      <b>
+                        {player.playerName} {player.playerSurname}
+                      </b>
+                    </h5>
+                    <p>
+                      {player.playerDOB}
+                      <br />
+                      <i>{player.playerPosition}</i>
+                    </p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Years</th>
+                          <th>Team Name</th>
+                          <th />
+                          <th>Apps</th>
+                          <th>Goals</th>
+                        </tr>
+                      </thead>
+                      {player.previousClubs &&
+                        player.previousClubs.map(prevClub => {
+                          return (
+                            <tbody key={prevClub.teamId}>
+                              <tr>
+                                <td>{prevClub.years}</td>
+                                <td>{prevClub.teamName}</td>
+                                <td>{prevClub.teamBadge}</td>
+                                <td>{prevClub.apps}</td>
+                                <td>{prevClub.goals}</td>
+                              </tr>
+                            </tbody>
+                          );
+                        })}
+                    </table>
+                  </div>
+                  <div class="col s12 m4 l2">
+                    <p>
+                      <img
+                        src={player.playerNationalFlag}
+                        alt=""
+                        class="circle responsive-img"
+                      />
+                    </p>
                   </div>
                 </div>
-                <div className="row valign-wrapper">
-                  <div className="col s12">
-                    <span class="link-title-text">{player.DOB}</span>
-                  </div>
-                </div>
-                <div className="row valign-wrapper">
-                  <div className="col s12">
-                    <span class="link-title-text">
-                      {player.playerPosition}
-                    </span>
-                  </div>
-                </div>
-                <div className="row valign-wrapper">
-                  <div className="col s3">
-                    <img
-                      src={player.playerNationalFlag}
-                      alt=""
-                      class="circle responsive-img"
-                    />
-                  </div>
-                  <div className="col s9">
-                    <span class="link-title-text">playerNationality</span>
-                  </div>
-                </div>
-              </div>
-            </div>              
-            );
-          })}
+              );
+            })}
+        </div>
       </div>
     );
   }
