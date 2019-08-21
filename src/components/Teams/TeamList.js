@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import TeamSummary  from '../Teams/TeamSummary';
 
 const TeamList = ({teams}) => {

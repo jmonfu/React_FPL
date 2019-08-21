@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import TeamDetails from './TeamDetails';
 
 const TeamSummary = ({ team }) => {
   return (
@@ -8,7 +7,7 @@ const TeamSummary = ({ team }) => {
     <div className="card-panel grey lighten-5 z-depth-2">
       <div className="row valign-wrapper">
         <div className="col s3">
-          <img src={team.badge} alt="" class="circle responsive-img" />
+          <img src={team.badge} alt="" className="circle responsive-img" />
         </div>
         <div className="col s9">
           <span className="link-title-text">

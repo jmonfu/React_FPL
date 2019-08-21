@@ -9,24 +9,24 @@ class TeamDetails extends Component {
 
     return (
       <div className="container">
-        <div class="row">
+        <div className="row">
           {teams &&
             teams
               .filter(team => team.id == this.id)
               .map(team => {
                 return (
-                  <div className="row center">
-                    <div class="col s12 m4 l2">
+                  <div className="row center" key={team.id}>
+                    <div className="col s12 m4 l2">
                       <p>
                         <img
                           src={team.badge}
                           alt=""
-                          class="circle responsive-img"
+                          className="circle responsive-img"
                         />
                       </p>
                     </div>
-                    <div class="col s12 m4 l8">
-                      <h5 class="center">
+                    <div className="col s12 m4 l8">
+                      <h5 className="center">
                         <b>{team.teamName}</b>
                       </h5>
                       <p>
@@ -56,15 +56,15 @@ class TeamDetails extends Component {
                         to={"/players/" + this.id}
                       >
                         Players List
-                        <i class="material-icons right">send</i>
+                        <i className="material-icons right">send</i>
                       </Link>
                     </div>
-                    <div class="col s12 m4 l2">
+                    <div className="col s12 m4 l2">
                       <p>
                         <img
                           src={team.nationBadge}
                           alt=""
-                          class="circle responsive-img"
+                          className="circle responsive-img"
                         />
                       </p>
                     </div>
@@ -84,9 +84,4 @@ const MapStateToProps = state => {
   }
 };
 
-const MapDispatchToProps = dispatch => {
-  return {
-  }
-};
-
-export default connect(MapStateToProps, MapDispatchToProps)(TeamDetails);
+export default connect(MapStateToProps, null)(TeamDetails);

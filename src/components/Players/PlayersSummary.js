@@ -7,10 +7,10 @@ const PlayerSummary = ({ player }) => {
       <div className="card-panel grey lighten-5 z-depth-2">
         <div className="row valign-wrapper">
           <div className="col s3">
-            <img src={player.playerFace} alt="" class="circle responsive-img" />
+            <img src={player.playerFace} alt="" className="circle responsive-img" />
           </div>
           <div className="col s9">
-            <span class="link-title-text">
+            <span className="link-title-text">
               <Link to={"/playerDetails/" + player.id} key={player.id}>
                 {player.playerName} {player.playerSurname}
               </Link>

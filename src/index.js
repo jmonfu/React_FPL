@@ -7,9 +7,9 @@ import * as serviceWorker from './serviceWorker';
 // Provider allows us to inject the Global Store
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import teamReducer from './store/reducers/teamReducer';
+import rootReducer from './store/reducers/rootReducer';
 
-const store = createStore(teamReducer);
+const store = createStore(rootReducer);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 

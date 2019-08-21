@@ -1,5 +1,4 @@
-const initialState = {
-    teams: [
+const teams = [
 
         {
             id: 1,
@@ -182,16 +181,10 @@ const initialState = {
             ]
           }
     
-    ]
-};
+    ];
 
-const teamReducer = (state=initialState, action) => {
-
-    switch(action.type) {
-
-        }
+const teamReducer = (state=teams, action) => {
         return state;
-
 };
 
 export default teamReducer;

@@ -21,9 +21,5 @@ const MapStateToProps = state => {
   }
 };
 
-const MapDispatchToProps = dispatch => {
-  return {
-  }
-};
 
-export default connect(MapStateToProps, MapDispatchToProps)(Dashboard);
+export default connect(MapStateToProps, null)(Dashboard);
