@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import TeamHonours from "./TeamHonours";
 
 class TeamDetails extends Component {
   render() {
@@ -27,30 +28,14 @@ class TeamDetails extends Component {
                     </div>
                     <div className="col s12 m4 l8">
                       <h5 className="center">
-                        <b>{team.teamName}</b>
+                        <b>{team.name}</b>
                       </h5>
                       <p>
                         <i>{team.description}</i>
                       </p>
-                      <table>
-                        <thead>
-                          <tr>
-                            <th>Title</th>
-                            <th>Winnings</th>
-                          </tr>
-                        </thead>
-                        {team.honours &&
-                          team.honours.map(teamHonors => {
-                            return (
-                              <tbody key={teamHonors.Title}>
-                                <tr>
-                                  <td>{teamHonors.Title}</td>
-                                  <td>{teamHonors.Winnings}</td>
-                                </tr>
-                              </tbody>
-                            );
-                          })}
-                      </table>
+                      
+                      <TeamHonours teamHonours={team.honours} />
+                      
                       <Link
                         className="waves-effect waves-light btn red darken-2"
                         to={"/players/" + this.id}

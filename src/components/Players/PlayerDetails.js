@@ -37,7 +37,7 @@ class PlayerDetails extends Component {
                       {player.playerDOB}
                     </p>
                       <PlayingPosition positionId= {player.positionId} />
-                    <PreviousClubs previousClubs={player.previousClubs} /> 
+                      <PreviousClubs previousClubs={player.previousClubs} /> 
                     </div>
                     <Nation nationId={player.nationId} />
                 </div>

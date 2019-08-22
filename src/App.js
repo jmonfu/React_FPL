@@ -16,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={DashboardComponent} />
           <Route path='/players/:id' component={PlayerList} />
+          <Route path='/players' component={PlayerList} />
           <Route path='/playerDetails/:id' component={PlayerDetails} />
           <Route path='/teamDetails/:id' component={TeamDetails} />
         </Switch>

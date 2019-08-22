@@ -1,7 +1,7 @@
     const players = [
 
         {
-            id: 1,
+            id: "aPfFagkvME7lXNOswKQw",
             playerFace:
               "http://soccersurgery.net/wp-content/uploads/2016/06/arsenal-logo-128x128.jpg",
             playerName: "Paul",
@@ -12,38 +12,35 @@
             previousClubs: [
               {
                 years: "2011-2012",
-                teamId: 1,
-                teamName: "Manchester United",
+                teamId: "ryUe7JEZFQPWimUK50w7",
                 teamBadge: "",
                 apps: "3",
                 goals: "0"
               },
               {
                 years: "2012-2016",
-                teamId: 100,
-                teamName: "Juventus",
+                teamId: "6CLzk89ip73cf5SDycii",
                 teamBadge: "",
                 apps: "124",
                 goals: "28"
               },
               {
                 years: "2016-",
-                teamId: 1,
-                teamName: "Manchester United",
+                teamId: "ryUe7JEZFQPWimUK50w7",
                 teamBadge: "",
                 apps: "94",
                 goals: "24"
               }
             ],
-            teamId: 1
+            teamId: "ryUe7JEZFQPWimUK50w7"
           },
           {
-            id: 2,
+            id: "ryUe7JEZFQPWimUK50w7",
             playerFace:
               "http://soccersurgery.net/wp-content/uploads/2016/06/arsenal-logo-128x128.jpg",
             playerName: "David",
             playerSurname: "De Gea",
-            teamId: 1
+            teamId: "ryUe7JEZFQPWimUK50w7"
           },
           {
             id: 3,
@@ -51,7 +48,7 @@
               "http://soccersurgery.net/wp-content/uploads/2016/06/arsenal-logo-128x128.jpg",
             playerName: "Alexander",
             playerSurname: "Lacazette",
-            teamId: 4
+            teamId: "SQ2Oy1RPAHgjdoDeuu6B"
           },
           {
             id: 4,
@@ -59,7 +56,7 @@
               "http://soccersurgery.net/wp-content/uploads/2016/06/arsenal-logo-128x128.jpg",
             playerName: "Patrick",
             playerSurname: "Aubemyang",
-            teamId: 4
+            teamId: "SQ2Oy1RPAHgjdoDeuu6B"
           },
           {
             id: 5,
@@ -67,7 +64,7 @@
               "http://soccersurgery.net/wp-content/uploads/2016/06/arsenal-logo-128x128.jpg",
             playerName: "David",
             playerSurname: "Eriksen",
-            teamId: 5
+            teamId: "K3qeNw4a4SL7oiSR2Fkw"
           },
           {
             id: 6,
@@ -75,15 +72,15 @@
               "http://soccersurgery.net/wp-content/uploads/2016/06/arsenal-logo-128x128.jpg",
             playerName: "Harry",
             playerSurname: "Kane",
-            teamId: 5
+            teamId: "K3qeNw4a4SL7oiSR2Fkw"
           },
           {
-            id: 7,
+            id: "ryUe7JEZFQPWimUK50w7",
             playerFace:
               "http://soccersurgery.net/wp-content/uploads/2016/06/arsenal-logo-128x128.jpg",
             playerName: "Anthony",
             playerSurname: "Martial",
-            teamId: 1
+            teamId: "ryUe7JEZFQPWimUK50w7"
           }
     ];
 

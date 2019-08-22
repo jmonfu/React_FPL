@@ -12,7 +12,7 @@ const TeamSummary = ({ team }) => {
         <div className="col s9">
           <span className="link-title-text">
             <Link to={"/teamDetails/" + team.id} key={team.id}>
-              {team.teamName}
+              {team.name}
             </Link>
           </span>
         </div>

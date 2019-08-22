@@ -1,6 +1,7 @@
-import React from "react";
+import React, {Component} from "react";
+import { connect } from 'react-redux';
 
-const PreviousClubs = ({ previousClubs }) => {
+const PreviousClubs = ({ previousClubs, teams }) => {
   return (
     <table>
     <thead>
@@ -18,8 +19,15 @@ const PreviousClubs = ({ previousClubs }) => {
           <tbody key={prevClub.years}>
             <tr>
               <td>{prevClub.years}</td>
-              <td>{prevClub.teamName}</td>
-              <td>{prevClub.teamBadge}</td>
+              {teams && teams
+                .filter(team => team.id == prevClub.teamId)
+                .map(team => {
+                  return (
+                    <td key={prevClub.years}>{team.name}</td>
+                  )
+                })
+              }
+                <td>{prevClub.teamBadge}</td>
               <td>{prevClub.apps}</td>
               <td>{prevClub.goals}</td>
             </tr>
@@ -29,4 +37,12 @@ const PreviousClubs = ({ previousClubs }) => {
   </table>
   );
 };
-export default PreviousClubs;
+
+const MapStateToProps = state => {
+  return {
+    teams: state.teams
+  }
+};
+
+
+export default connect(MapStateToProps, null)(PreviousClubs);
