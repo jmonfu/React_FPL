@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 class PlayingPosition extends Component {
   render() {
@@ -22,11 +24,15 @@ class PlayingPosition extends Component {
   }
 }
 
-const MapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    positions: state.positions
+    positions: state.firestore.ordered.positions
   }
-};
+}
 
-
-export default connect(MapStateToProps, null)(PlayingPosition);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'positions'}
+  ])
+)(PlayingPosition)

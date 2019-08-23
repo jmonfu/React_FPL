@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import TeamHonours from "./TeamHonours";
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
+
 
 class TeamDetails extends Component {
   render() {
     const { teams } = this.props;
     this.id = this.props.match.params.id;
-
     return (
       <div className="container">
         <div className="row">
@@ -63,10 +65,15 @@ class TeamDetails extends Component {
 }
 
 
-const MapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    teams: state.teams
+    teams: state.firestore.ordered.teams
   }
-};
+}
 
-export default connect(MapStateToProps, null)(TeamDetails);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'teams', orderBy: ['name', 'asc']}
+  ])
+)(TeamDetails)

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import PlayerSummary from "./PlayersSummary";
 import { connect } from "react-redux";
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 class PlayerList extends Component {
   render() {
     const { players } = this.props;
     this.teamId = this.props.match.params.id;
-
     return (
       <div className="row">
         {players &&
@@ -20,7 +21,7 @@ class PlayerList extends Component {
               return (
                 <div className="col s4" key={player.id}>
                   <span className="flow-text">
-                    <PlayerSummary player={player} />
+                  <PlayerSummary player={player} />
                   </span>
                 </div>
               );
@@ -30,13 +31,15 @@ class PlayerList extends Component {
   }
 }
 
-const MapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    players: state.players
-  };
-};
+    players: state.firestore.ordered.players
+  }
+}
 
-export default connect(
-  MapStateToProps,
-  null
-)(PlayerList);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'players'}
+  ])
+)(PlayerList)

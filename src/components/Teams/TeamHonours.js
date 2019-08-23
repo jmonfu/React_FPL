@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 class TeamHonours extends Component {
   render() {
@@ -17,14 +19,14 @@ class TeamHonours extends Component {
           return (
             <tbody key={teamHonors.honour}>
               <tr>
-                {honours && honours
-                  .filter(honour => honour.id == teamHonors.honour)
-                  .map(honour => {
-                    return (
-                      <td>{honour.name}</td>
-                    )
-                  })}
-                  <td>{teamHonors.amount}</td>
+              {honours && honours
+                .filter(honour => honour.id === teamHonors.honour)
+                .map(honour => {
+                  return (
+                    <td key={teamHonors.honour}>{honour.name}</td>
+                  )
+                })}
+                <td>{teamHonors.amount}</td>
               </tr>
             </tbody>
           );
@@ -35,12 +37,15 @@ class TeamHonours extends Component {
   
  }
 
-
-const MapStateToProps = state => {
+ const mapStateToProps = (state) => {
   return {
-    honours: state.honours
+    honours: state.firestore.ordered.honours
   }
-};
+}
 
-
-export default connect(MapStateToProps, null)(TeamHonours);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'honours'}
+  ])
+)(TeamHonours)

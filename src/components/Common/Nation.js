@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 class Nation extends Component {
   render() {
     const { nations, nationId } = this.props;
     return (
       <div className="row">
+      {console.log(nations)}
+      {console.log(nationId)}
       {nations &&
         nations
         .filter(nation => nation.id == nationId)
@@ -28,11 +32,15 @@ class Nation extends Component {
   }
 }
 
-const MapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    nations: state.nations
+    nations: state.firestore.ordered.nations
   }
-};
+}
 
-
-export default connect(MapStateToProps, null)(Nation);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'nations'}
+  ])
+)(Nation)
