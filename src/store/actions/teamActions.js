@@ -6,7 +6,7 @@ export const createTeam = (team) => {
         // const authorId = getState().firebase.auth.uid;
 
         firestore.collection('teams').add({
-            //spread operator for project.title and project.content
+            //spread operator for the name, badge, description, leagueId and nationId
             ...team
         }).then(() => {
             dispatch({ type: 'CREATE_TEAM', team });

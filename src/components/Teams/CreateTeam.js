@@ -3,20 +3,20 @@ import { connect } from 'react-redux'
 import { createTeam } from '../../store/actions/teamActions'
 import { Redirect } from 'react-router-dom'
 
- class CreateTeam extends Component {
-     state = {
-         badge: '',
-         description: '',
-         honours : [],
-         leagueId : "",
-         name: "",
-         nationId: ""
-     }
+class CreateTeam extends Component {
+    state = {
+        badge: '',
+        description: '',
+        honours: [],
+        leagueId: "",
+        name: "",
+        nationId: ""
+    }
 
     render() {
         // const { auth } = this.props;
         // if(!auth.uid) return <Redirect to='/signin' />
-        
+
         return (
             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white">
@@ -26,24 +26,35 @@ import { Redirect } from 'react-router-dom'
                         <label htmlFor="name"></label>
                     </div>
                     <div className="input-field">
-                        <label htmlFor="badge"></label>
-                        <input placeholder="Badge"  type="text" id="badge" onChange={this.handleChange}/>
-                    </div>
-                    <div className="input-field">
                         <label htmlFor="leagueId"></label>
-                        <input placeholder="LeagueID" type="text" id="leagueId" onChange={this.handleChange}/>
+                        <input placeholder="LeagueID" type="text" id="leagueId" onChange={this.handleChange} />
                     </div>
                     <div className="input-field">
                         <label htmlFor="nationId"></label>
-                        <input placeholder="NationId" type="text" id="nationId" onChange={this.handleChange}/>
+                        <input placeholder="NationId" type="text" id="nationId" onChange={this.handleChange} />
                     </div>
                     <div className="input-field">
                         <label htmlFor="description"></label>
                         <textarea placeholder="Description" id="description" className="materialize-textarea" onChange={this.handleChange}></textarea>
                     </div>
                     <div className="input-field">
-                        <button className="btn pink lighten-1 z-depth-0">Create</button>
+                        <label htmlFor="badge"></label>
+                        <div class="file-field input-field">
+                            <div  className="btn green lighten-1 z-depth-0">
+                                <span>Upload Badge</span>
+                                <input type="file" />
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text"
+                                    placeholder="Upload badge" />
+                            </div>
+                        </div>
                     </div>
+                    <div class="row">
+                    <div class="input-field col offset-s6 s6">
+                    <button className="btn pink lighten-1 z-depth-0">Create Team</button>
+                    </div>
+                  </div>
                 </form>
             </div>
         )
@@ -60,8 +71,8 @@ import { Redirect } from 'react-router-dom'
         this.props.createTeam(this.state);
         this.props.history.push('/');
     }
-    
-    
+
+
 }
 
 const mapStateToProps = (state) => {
