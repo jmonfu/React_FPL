@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import TeamHonours from "./TeamHonours";
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import Nation from "../Common/Nation";
 
 
 class TeamDetails extends Component {
@@ -46,15 +47,7 @@ class TeamDetails extends Component {
                         <i className="material-icons right">send</i>
                       </Link>
                     </div>
-                    <div className="col s12 m4 l2">
-                      <p>
-                        <img
-                          src={team.nationBadge}
-                          alt=""
-                          className="circle responsive-img"
-                        />
-                      </p>
-                    </div>
+                    <Nation nationId={team.nationId} />
                   </div>
                 );
               })}
