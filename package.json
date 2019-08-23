@@ -5,8 +5,9 @@
   "dependencies": {
     "firebase": "^5.3.0",
     "moment": "^2.24.0",
-    "react": "^16.4.1",
+    "react": "^16.9.0",
     "react-dom": "^16.4.1",
+    "react-dropzone": "^10.1.7",
     "react-filepond": "^7.0.1",
     "react-redux": "^5.0.7",
     "react-redux-firebase": "^2.1.6",
@@ -15,6 +16,7 @@
     "redux": "^4.0.0",
     "redux-firestore": "^0.5.7",
     "redux-thunk": "^2.3.0",
+    "superagent": "^5.1.0",
     "yarn": "^1.17.3",
     "yarn-install": "^1.0.0"
   },

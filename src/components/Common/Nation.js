@@ -8,8 +8,6 @@ class Nation extends Component {
     const { nations, nationId } = this.props;
     return (
       <div className="row">
-      {console.log(nations)}
-      {console.log(nationId)}
       {nations &&
         nations
         .filter(nation => nation.id == nationId)

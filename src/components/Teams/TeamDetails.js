@@ -23,7 +23,7 @@ class TeamDetails extends Component {
                     <div className="col s12 m4 l2">
                       <p>
                         <img
-                          src={team.badge}
+                          src={team.badgeUrl}
                           alt=""
                           className="circle responsive-img"
                         />
