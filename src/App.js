@@ -7,6 +7,7 @@ import DashboardComponent from './components/Dashboard';
 import TeamDetails from './components/Teams/TeamDetails';
 import PlayerList from './components/Players/PlayerList';
 import PlayerDetails from './components/Players/PlayerDetails';
+import CreateTeam from './components/Teams/CreateTeam'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/players' component={PlayerList} />
           <Route path='/playerDetails/:id' component={PlayerDetails} />
           <Route path='/teamDetails/:id' component={TeamDetails} />
+          <Route path='/createTeam' component={CreateTeam} />
         </Switch>
       </div>
     </BrowserRouter>
