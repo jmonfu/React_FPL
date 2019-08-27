@@ -50,13 +50,7 @@ class CreateTeam extends Component {
   }
 
   render() {
-    const { nations } = this.props;
-    const items = [{id: "Du39n6zAFnue4ULbLBlq", name: "Italy"}, {id: "OGBxuGB5q6CCBTTCyWfF", name:"France"}, {id: "ZtzO4WjBIyXy28xVw2kY", name:"England"}]
-
-    {console.log(nations)}
-    {console.log(items)}
-
-
+    const { nations, leagues } = this.props;
     // if(!auth.uid) return <Redirect to='/signin' />
 
     return (
@@ -74,27 +68,31 @@ class CreateTeam extends Component {
             <label htmlFor="name" />
           </div>
 
-          <div className="input-field" id="pickerContainer">
+          <div className="input-field">
             <label htmlFor="leagueId" />
-            <Dropdown list={items && items.map(item => {
+            {leagues ? <Dropdown 
+              list={leagues && leagues.map(league => {
               return(
                 {
-                  id: item.id, name: item.name
+                  id: league.id, name: league.name
                 }
               )
-            })} />
+            })} /> : null
+          }
         </div>
 
-          <div className="input-field" id="pickerContainer">
+          <div className="input-field">
             <label htmlFor="nationId" />
-              <Dropdown list={items && items.map(item => {
-                return(
-                  {
-                    id: item.id, name: item.name
-                  }
-                )
-              })} />
-            </div>
+            {nations ? <Dropdown 
+              list={nations && nations.map(nation => {
+              return(
+                {
+                  id: nation.id, name: nation.name
+                }
+              )
+            })} /> : null
+          }
+        </div>
 
 
           <div className="input-field">
@@ -192,7 +190,8 @@ class CreateTeam extends Component {
 
 const mapStateToProps = state => {
   return {
-    nations: state.firestore.ordered.nations
+    nations: state.firestore.ordered.nations,
+    leagues: state.firestore.ordered.honours
   };
 };
 
@@ -205,6 +204,7 @@ const mapDispatchToProps = dispatch => {
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect([
-    { collection: 'nations'}
+    { collection: 'nations'},
+    { collection: 'honours'}
   ])
 )(CreateTeam);
